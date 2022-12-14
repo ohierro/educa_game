@@ -1,4 +1,4 @@
-import Game from "../views/game.vue"
+import Game from "../views/Game.vue"
 import Home from "../views/home.vue"
 import Level from "../views/level.vue"
 

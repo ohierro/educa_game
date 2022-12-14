@@ -4,7 +4,7 @@ import { TrueFalseQuestion } from "./TrueFalseQuestion";
 export class QuestionGenerator {
   constructor() {}
 
-  generate(questionNumber: number): IQuestion[] {
+  public generate(questionNumber: number): IQuestion[] {
     return [new TrueFalseQuestion('Pregunta de prueba...')]
   }
 }
