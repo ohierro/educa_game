@@ -3,20 +3,26 @@ import { IQuestion } from "./IQuestion";
 export class TrueFalseQuestion implements IQuestion {
   title: string
   options: string[]
+  correctAnswer: boolean
 
-  constructor(title: string) {
+  constructor(title: string, correctAnswer: boolean) {
     this.title = title
-    this.options = ['uno', 'dos', 'tres']
+    this.options = [ 'Sí', 'No' ]
+    this.correctAnswer = correctAnswer
+  }
+
+  getType(): string {
+    return 'TrueFalse'
   }
 
   getTitle(): string {
     return this.title
   }
   getOptions(): string[] {
-    return ['true', 'false']
+    return this.options
   }
-  resolve(): boolean {
-    throw new Error("Method not implemented.");
+  resolve(option: boolean): boolean {
+    return option === this.correctAnswer
   }
 
 }

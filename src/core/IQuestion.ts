@@ -1,5 +1,8 @@
 export interface IQuestion {
+  getType(): string
+
   getTitle(): string
   getOptions(): string[]
-  resolve(): boolean
+
+  resolve(option: string | boolean | number): boolean
 }

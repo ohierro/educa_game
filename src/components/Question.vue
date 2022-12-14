@@ -1,22 +1,26 @@
 <template>
-  Esto sería un mensaje {{ msg }} {{ counter }} {{ computedValue }}
-  <button @click="counter++">Click me</button>
+  {{ question.getTitle() }}
+
+  <div v-if="question.getType() === 'TrueFalse'">
+    <button @click="$emit('resolve', false)">Falso</button>
+    <button @click="$emit('resolve', true)">Verdad</button>
+  </div>
+  <div v-if="question.getType() === 'SimpleOperation'">
+    <label for="result">Resultado</label><input v-model="value" name="result" type="number" />
+    <button @click="$emit('resolve', value)">Enviar</button>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { IQuestion } from '../core/IQuestion';
 
 defineProps<{
-  msg: string,
-  counter?: number
+  question: IQuestion,
 }>()
 
-const computedValue = computed(() => counter.value > 5 ? 'Greater than' : 'Less than')
+const value = ref(0)
 
-let counter = ref(0)
-
-
-let x: string | number = 1
 </script>
 
 <style>
