@@ -2,6 +2,7 @@
 </script>
 
 <template>
+  <h1>Educa game!!</h1>
   <router-view></router-view>
 </template>
 
