@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -79,3 +79,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@font-face {
+  font-family: 'MysteryQuest';
+  src: url('./fonts/MysteryQuest-Regular.ttf') format('truetype'),
+ }  */

@@ -16,12 +16,14 @@
     <div v-if="store.validation">Bien!!</div>
     <div v-if="!store.validation">Ohhh no</div>
   </div>
+  <Keyboard></Keyboard>
 </div>
 </template>
 
 <script setup lang="ts">
 
 import { ref } from 'vue';
+import Keyboard from '../components/keyboard/Keyboard.vue';
 import Question from '../components/Question.vue';
 import { useQuestionStore } from '../store';
 
@@ -33,7 +35,7 @@ const resultOk = ref(false)
 const resultKo = ref(false)
 
 function clean() {
-  
+
 }
 
 function validate(option: boolean) {
