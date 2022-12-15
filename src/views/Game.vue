@@ -3,14 +3,16 @@
   <div>
     <ProgressBar></ProgressBar>
   </div>
+  <div>
+    <div v-if="store.validated">
+      <div v-if="store.validation">Bien!!</div>
+      <div v-if="!store.validation">Ohhh no</div>
+    </div>
+  </div>
   <Question
     :question="store.currentQuestion"
     @resolve="validate"
   ></Question>
-  <div v-if="store.validated">
-    <div v-if="store.validation">Bien!!</div>
-    <div v-if="!store.validation">Ohhh no</div>
-  </div>
 </div>
 </template>
 

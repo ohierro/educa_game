@@ -1,31 +1,55 @@
 <template>
 <div class="meter animate">
-  <span style="width: 25%"></span>
+  <span style="width: 30%"></span>
 </div>
 </template>
 
-<style scoped>
 
+
+<style scoped>
 .meter {
-  height: 20px;
+  box-sizing: content-box;
+  height: 20px; /* Can be anything */
   position: relative;
+  margin: 60px 0 20px 0; /* Just for demo spacing */
   background: #555;
   border-radius: 25px;
   padding: 10px;
   box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
 }
-
-.meter > span:after {
+.meter > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: rgb(43, 194, 83);
+  background-image: linear-gradient(
+    center bottom,
+    rgb(43, 194, 83) 37%,
+    rgb(84, 240, 84) 69%
+  );
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.meter > span:after,
+.animate > span > span {
   content: "";
   position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-image: linear-gradient(
     -45deg,
-    rgba(255, 255, 255, .2) 25%,
+    rgba(255, 255, 255, 0.2) 25%,
     transparent 25%,
     transparent 50%,
-    rgba(255, 255, 255, .2) 50%,
-    rgba(255, 255, 255, .2) 75%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
     transparent 75%,
     transparent
   );
@@ -39,18 +63,8 @@
   overflow: hidden;
 }
 
-.orange > span {
-  background-color: #f1a165;
-  background-image: linear-gradient(to bottom, #f1a165, #f36d0a);
-}
-
-.red > span {
-  background-color: #f0a3a3;
-  background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
-}
-
-.meter > span::after, .animate > span > span {
-  animation: move 2s linear infinite;
+.animate > span:after {
+  display: none;
 }
 
 @keyframes move {
@@ -60,5 +74,18 @@
   100% {
     background-position: 50px 50px;
   }
+}
+
+.orange > span {
+  background-image: linear-gradient(#f1a165, #f36d0a);
+}
+
+.red > span {
+  background-image: linear-gradient(#f0a3a3, #f42323);
+}
+
+.nostripes > span > span,
+.nostripes > span::after {
+  background-image: none;
 }
 </style>
