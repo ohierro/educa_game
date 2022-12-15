@@ -29,8 +29,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - name: Install and Build 🔧 
-        - run: |
-            echo 'TODO build here'
+      run: |
+        echo 'TODO build here'
     - name: Deploy 🚀
       env:
         ACCESS_TOKEN: ${{ secrets.TOKEN }} # This token has to be generated as shown in https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
