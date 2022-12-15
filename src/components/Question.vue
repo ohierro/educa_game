@@ -6,25 +6,39 @@
     <button @click="$emit('resolve', true)">Verdad</button>
   </div>
   <div v-if="question.getType() === 'SimpleOperation'">
-    <label for="result">Resultado</label><input v-model="value" name="result" type="number" />
-    <button @click="$emit('resolve', value)">Enviar</button>
+    <div class="flex">
+      <input v-model="value" name="result" type="number" /><button @click="doEmit">Enviar</button>
+    </div>
+    <Keyboard @key="onKeyPressed"></Keyboard>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import Keyboard from '../components/keyboard/Keyboard.vue';
+import { ref } from 'vue'
 import { IQuestion } from '../core/IQuestion';
-
-defineEmits(['resolve'])
-
-defineProps<{
-  question: IQuestion,
-}>()
 
 const value = ref(0)
 
+const emit = defineEmits(['resolve'])
+
+const props = defineProps<{
+  question: IQuestion,
+}>()
+
+function onKeyPressed(key: number) {
+  value.value = parseInt(value.value.toString() + key)
+}
+
+function doEmit() {
+  emit('resolve', value.value)
+  value.value = 0
+}
+
 </script>
 
-<style>
-
+<style scoped>
+.flex {
+  display: flex;
+}
 </style>
