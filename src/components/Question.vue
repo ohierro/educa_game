@@ -15,6 +15,8 @@
 import { computed, ref } from 'vue'
 import { IQuestion } from '../core/IQuestion';
 
+defineEmits(['resolve'])
+
 defineProps<{
   question: IQuestion,
 }>()

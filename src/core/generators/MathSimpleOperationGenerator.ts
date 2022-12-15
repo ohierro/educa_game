@@ -1,3 +1,4 @@
+import { CustomExpressions } from "../CustomExpressions";
 import { CustomMath } from "../CustomMath";
 import { SimpleOperationQuestion } from "../SimpleOperationQuestion";
 
@@ -10,18 +11,29 @@ export class MathSimpleOperationGenerator {
   ]
 
   public generate(): SimpleOperationQuestion {
-    let a = CustomMath.random(1, 100)
-    let b = CustomMath.random(1, 100)
+    let op = CustomMath.random(0, this.expressions.length)
+    let operators = CustomMath.randomPair(0, 100, 20)
+    let result = -1
 
-    if (a < b) {
-      // swap
-      let c = a
-      a = b
-      b = c
+    switch(op) {
+      case 0:
+        operators = CustomMath.randomPair(0, 100, 20)
+        result = operators[0] - operators[1]
+        break
+      case 1:
+        operators = CustomMath.randomPair(0, 100, 20)
+        result = operators[0] + operators[1]
+        break
+      case 2:
+        operators = CustomMath.randomPair(0, 10, 9)
+        result = operators[0] * operators[1]
+        break
     }
 
-    return new SimpleOperationQuestion( this.expressions[0]
-                                          .replace(':a', a.toString())
-                                          .replace(':b', b.toString()), a - b)
+    console.log(`op ${op}: ${operators[0]}, ${operators[1]} = ${result}`);
+
+    return new SimpleOperationQuestion(
+        CustomExpressions.replace(this.expressions[op], { a: operators[0], b: operators[1] }),
+        result)
   }
 }

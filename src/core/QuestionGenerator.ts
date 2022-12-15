@@ -10,7 +10,14 @@ export class QuestionGenerator {
   public generate(questionNumber: number): IQuestion[] {
     const generator = new MathTrueFalseGenerator()
     const simpleOperationGenerator = new MathSimpleOperationGenerator()
-    return [simpleOperationGenerator.generate(), generator.generate()]
+
+    let questions = []
+    for (let i = 0; i < 10; i++) {
+      questions.push(simpleOperationGenerator.generate())
+    }
+
+    return questions
+    // return [simpleOperationGenerator.generate(), generator.generate()]
     // return [new TrueFalseQuestion('Pregunta de prueba...')]
   }
 }
