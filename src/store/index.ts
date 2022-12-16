@@ -7,8 +7,9 @@ export const useQuestionStore = defineStore('questions', () => {
   const number = ref(0)
   const validated = ref(false)
   const validation = ref(false)
-
+  
   let questions: IQuestion[] = reactive([])
+
   // let solutions: string | number | boolean []
   // let validations: boolean[] = reactive([])
 
@@ -29,9 +30,10 @@ export const useQuestionStore = defineStore('questions', () => {
   }
 
   const currentQuestion = computed(() => questions[number.value])
+  const progress = computed(() => number.value * 100 / questions.length)
   // function currentQuestion(): IQuestion {
   //   return questions[number.value]
   // }
 
-  return { questions, number, validated, validation, init, validate, increment, currentQuestion }
+  return { questions, number, validated, validation, init, validate, increment, currentQuestion, progress }
 })

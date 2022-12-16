@@ -1,18 +1,19 @@
 <script setup lang="ts">
+import Footer from './components/ui/Footer.vue';
+import Header from './components/ui/Header.vue';
+
 </script>
 
 <template>
-<div class="container">
   <header>
-    <h1>Educa game!!</h1>
+    <Header />
   </header>
   <main>
     <router-view></router-view>
   </main>
   <footer>
-    Mi footer
+    <Footer />
   </footer>
-</div>
 </template>
 
 <style scoped>
@@ -29,6 +30,16 @@ main {
 
 header, main, footer {
     flex-shrink: 0;
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+}
+
+footer {
+  padding: 15px;
+  text-align: right;
 }
 /* .container {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;

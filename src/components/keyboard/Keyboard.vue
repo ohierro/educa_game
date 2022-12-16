@@ -21,10 +21,10 @@
       </div>
     </div>
     <div class="column-25">
-      <div class="operators">
+      <div class="operators full-height">
         <button>+</button>
         <button>-</button>
-        <button>=</button>
+        <button class="grow" @click="$emit('del')">Borrar</button>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 
-defineEmits(['key'])
+defineEmits(['key', 'del'])
 
 
 </script>

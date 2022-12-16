@@ -1,9 +1,30 @@
 <template>
 <div class="meter animate">
-  <span style="width: 30%"></span>
+  <span :style="{ width: store.progress + '%' }"></span>
 </div>
 </template>
 
+<script setup lang="ts">
+
+import { computed, ref } from 'vue';
+import { useQuestionStore } from '../store';
+
+const store = useQuestionStore()
+
+const props = defineProps<{
+  progress: number
+}>()
+
+const fakeProgress = ref(0)
+
+// let progressString = computed(() => `${fakeProgress.value} %`)
+
+setInterval(() => {
+  console.log(`progress ${fakeProgress.value}`)
+  fakeProgress.value++
+}, 100)
+
+</script>
 
 
 <style scoped>

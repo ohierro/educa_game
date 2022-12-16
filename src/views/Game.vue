@@ -1,9 +1,9 @@
 <template>
 <div>
   <div>
-    <ProgressBar></ProgressBar>
+    <ProgressBar :progress="store.progress"></ProgressBar>
   </div>
-  <div>
+  <div class="message">
     <div v-if="store.validated">
       <div v-if="store.validation">Bien!!</div>
       <div v-if="!store.validation">Ohhh no</div>
@@ -44,3 +44,11 @@ function validate(option: boolean) {
 }
 
 </script>
+
+<style scoped>
+.message {
+  min-height: 100px;
+  font-size: xx-large;
+  text-align: center;
+}
+</style>
