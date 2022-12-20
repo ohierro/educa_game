@@ -1,6 +1,6 @@
-import { CustomExpressions } from "../CustomExpressions";
-import { CustomMath } from "../CustomMath";
-import { SimpleOperationQuestion } from "../SimpleOperationQuestion";
+import { CustomExpressions } from "../util/CustomExpressions";
+import { CustomMath } from "../util/CustomMath";
+import { SimpleOperationQuestion } from "../questions/SimpleOperationQuestion";
 
 export class MathSimpleOperationGenerator {
 

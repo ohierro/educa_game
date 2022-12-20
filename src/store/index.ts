@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import { QuestionGenerator } from '../core/QuestionGenerator'
-import { IQuestion } from '../core/IQuestion'
+import { QuestionGenerator } from '../core/questions/QuestionGenerator'
+import { IQuestion } from '../core/questions/IQuestion'
 import { computed, reactive, ref } from 'vue'
 
 export const useQuestionStore = defineStore('questions', () => {

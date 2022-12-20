@@ -1,6 +1,6 @@
-import { CustomMath } from "./CustomMath";
-import { MathSimpleOperationGenerator } from "./generators/MathSimpleOperationGenerator";
-import { MathTrueFalseGenerator } from "./generators/MathTrueFalseGenerator";
+import { CustomMath } from "../util/CustomMath";
+import { MathSimpleOperationGenerator } from "../generators/MathSimpleOperationGenerator";
+import { MathTrueFalseGenerator } from "../generators/MathTrueFalseGenerator";
 import { IQuestion } from "./IQuestion";
 import { SimpleOperationQuestion } from "./SimpleOperationQuestion";
 import { TrueFalseQuestion } from "./TrueFalseQuestion";
@@ -14,12 +14,11 @@ export class QuestionGenerator {
 
     let questions = []
     for (let i = 0; i < 10; i++) {
-      //
-      if (CustomMath.random(0,10) < 5) {
+      // if (CustomMath.random(0,10) < 5) {
         questions.push(generator.generate())
-      } else {
-        questions.push(simpleOperationGenerator.generate())
-      }
+      // } else {
+      //   questions.push(simpleOperationGenerator.generate())
+      // }
     }
 
     return questions

@@ -1,4 +1,9 @@
 export class CustomMath {
+  /**
+   * Generates a random number like [:from, to): `:from` inclusive to `:to` *exclusive*.
+   * @param from 
+   * @param to 
+   */
   static random(from: number, to: number): number {
     return Math.floor(Math.random() * (to - from)) + from
   }
@@ -18,5 +23,9 @@ export class CustomMath {
     } while (b > to)
 
     return [b, a]
+  }
+
+  static randomBoolean(): boolean {
+    return Math.random() >= 0.5
   }
 }

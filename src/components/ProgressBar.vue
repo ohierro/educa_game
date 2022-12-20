@@ -19,10 +19,10 @@ const fakeProgress = ref(0)
 
 // let progressString = computed(() => `${fakeProgress.value} %`)
 
-setInterval(() => {
-  console.log(`progress ${fakeProgress.value}`)
-  fakeProgress.value++
-}, 100)
+// setInterval(() => {
+//   console.log(`progress ${fakeProgress.value}`)
+//   fakeProgress.value++
+// }, 100)
 
 </script>
 

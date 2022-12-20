@@ -4,6 +4,12 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background: url(img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #cccccc;
+  background-image: linear-gradient(#9584ff, #edb1ff);
 }
 
 #app {

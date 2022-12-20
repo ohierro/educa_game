@@ -18,13 +18,15 @@
 
 <script setup lang="ts">
 
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
 import ProgressBar from '../components/ProgressBar.vue';
 import Question from '../components/Question.vue';
 import { useQuestionStore } from '../store';
 
 const store = useQuestionStore()
 store.init()
+const router = useRouter()
 
 const showResult = ref(false)
 const resultOk = ref(false)
@@ -33,6 +35,14 @@ const resultKo = ref(false)
 function clean() {
 
 }
+
+watch(() => store.number, (newVal, oldVal)=> {
+  // console.log(`new val ${newVal} oldval ${oldVal}`);
+  
+  if (newVal === 2) {
+    router.push('end')
+  }
+})
 
 function validate(option: boolean) {
   store.validate(option)

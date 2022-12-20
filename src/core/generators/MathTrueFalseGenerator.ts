@@ -1,5 +1,5 @@
-import { CustomMath } from "../CustomMath"
-import { TrueFalseQuestion } from "../TrueFalseQuestion"
+import { CustomMath } from "../util/CustomMath"
+import { TrueFalseQuestion } from "../questions/TrueFalseQuestion"
 
 export class MathTrueFalseGenerator {
   // expressions = {
@@ -26,11 +26,11 @@ export class MathTrueFalseGenerator {
 
   public generate(): TrueFalseQuestion {
     // let randomExpression = Math.floor(Math.random() * this.expressions.length)
-    let randomExpression = 0
+    let randomExpression = CustomMath.random(0, 4)
+    console.log(`generated ${randomExpression}`);
 
-
-    // switch(randomExpression) {
-    //   case 0: {
+    switch(randomExpression) {
+      case 0: {
         let a = CustomMath.random(0, 100)
         let b = CustomMath.random(0, 100)
 
@@ -39,18 +39,59 @@ export class MathTrueFalseGenerator {
               .replace(':a', a.toString())
               .replace(':b', b.toString()),
           a > b)
-      // }
-      // case 1: {
-      //   let a = CustomMath.random(0, 100)
-      //   let b = CustomMath.random(0, 100)
+      }
+      case 1: {
+        let a = CustomMath.random(0, 100)
+        let b = CustomMath.random(0, 100)
 
-      //   return new TrueFalseQuestion(
-      //     this.expressions[1]
-      //         .replace(':a', a.toString())
-      //         .replace(':b', b.toString()),
-      //     [ 'Si', 'No' ],
-      //     'Si')
-      // }
-    // }
+        return new TrueFalseQuestion(
+          this.expressions[1]
+              .replace(':a', a.toString())
+              .replace(':b', b.toString()),
+          a < b)
+      }
+      case 2: {
+        let [a, b] =  CustomMath.randomPair(0, 100, 20)
+
+        if (CustomMath.randomBoolean()) {
+          return new TrueFalseQuestion(
+            this.expressions[2]
+                .replace(':a', a.toString())
+                .replace(':b', b.toString())
+                .replace(':c', (a + b).toString()),
+            true)
+        } else {
+          let diff = CustomMath.random(1, 10)
+          return new TrueFalseQuestion(
+            this.expressions[0]
+                .replace(':a', a.toString())
+                .replace(':b', b.toString())
+                .replace(':c', (a + b + diff).toString()),
+            false)
+        }
+      }
+      case 3: {
+        let [a, b] =  CustomMath.randomPair(0, 10, 9)
+
+        if (CustomMath.randomBoolean()) {
+          return new TrueFalseQuestion(
+            this.expressions[3]
+                .replace(':a', a.toString())
+                .replace(':b', b.toString())
+                .replace(':c', (a * b).toString()),
+            true)
+        } else {
+          let diff = CustomMath.random(1, 10)
+          return new TrueFalseQuestion(
+            this.expressions[0]
+                .replace(':a', a.toString())
+                .replace(':b', b.toString())
+                .replace(':c', (a * b + diff).toString()),
+            false)
+        }
+      }
+      default:
+        throw new Error('undefined question type')
+    }
   }
 }

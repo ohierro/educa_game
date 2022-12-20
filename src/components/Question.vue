@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import Keyboard from '../components/keyboard/Keyboard.vue';
 import { ref } from 'vue'
-import { IQuestion } from '../core/IQuestion';
+import { IQuestion } from '../core/questions/IQuestion';
 
 const value = ref(0)
 
