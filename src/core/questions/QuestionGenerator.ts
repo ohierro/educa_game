@@ -14,11 +14,11 @@ export class QuestionGenerator {
 
     let questions = []
     for (let i = 0; i < 10; i++) {
-      // if (CustomMath.random(0,10) < 5) {
+      if (CustomMath.random(0,10) < 5) {
         questions.push(generator.generate())
-      // } else {
-      //   questions.push(simpleOperationGenerator.generate())
-      // }
+      } else {
+        questions.push(simpleOperationGenerator.generate())
+      }
     }
 
     return questions

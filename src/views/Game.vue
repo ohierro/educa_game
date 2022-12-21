@@ -39,7 +39,7 @@ function clean() {
 watch(() => store.number, (newVal, oldVal)=> {
   // console.log(`new val ${newVal} oldval ${oldVal}`);
   
-  if (newVal === 2) {
+  if (newVal === 10) {
     router.push('end')
   }
 })

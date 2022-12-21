@@ -11,11 +11,13 @@ const props = defineProps({
 	disabled: Boolean
 })
 
-const router = useRouter()
+// const router = useRouter()
+const emit = defineEmits(['click'])
 
 function doClick() {
-	if (props.path && !props.disabled)
-		router.push(props.path)
+	emit('click', props.path)
+	// if (props.path && !props.disabled)
+	// 	router.push(props.path)
 }
 </script>
 

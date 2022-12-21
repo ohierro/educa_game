@@ -7,7 +7,7 @@ export const useQuestionStore = defineStore('questions', () => {
   const number = ref(0)
   const validated = ref(false)
   const validation = ref(false)
-  
+
   let questions: IQuestion[] = reactive([])
 
   // let solutions: string | number | boolean []
@@ -21,7 +21,7 @@ export const useQuestionStore = defineStore('questions', () => {
 
   function init() {
     const generator = new QuestionGenerator()
-    questions = generator.generate(2)
+    questions.push(...generator.generate(2))
   }
 
   function validate(result: string | number | boolean) {

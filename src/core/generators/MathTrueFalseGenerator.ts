@@ -63,7 +63,7 @@ export class MathTrueFalseGenerator {
         } else {
           let diff = CustomMath.random(1, 10)
           return new TrueFalseQuestion(
-            this.expressions[0]
+            this.expressions[3]
                 .replace(':a', a.toString())
                 .replace(':b', b.toString())
                 .replace(':c', (a + b + diff).toString()),
