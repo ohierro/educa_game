@@ -9,7 +9,7 @@ import Header from './components/ui/Header.vue';
     <Header />
   </header>
   <main>
-    <div class="bg-white text-5xl">
+    <div class="bg-white">
       Texto de pruebas
       <button class="btn">Button</button>
     </div>

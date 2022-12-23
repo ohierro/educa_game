@@ -1,20 +1,21 @@
-@import url('postcss/index.css');
+/* @import url('postcss/index.css'); */
+@import url('postcss/variables.css');
+@import url('postcss/fonts.css');
+@import url('postcss/main.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-
-  /* background: url(img/background.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-color: var(--background-color);
-  /* background-image: linear-gradient(#9584ff, #edb1ff); */
 }
 
 
@@ -41,7 +42,7 @@ header {
 
 body {
   font-family: "MysteryQuest";
-}
+} */
 
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;

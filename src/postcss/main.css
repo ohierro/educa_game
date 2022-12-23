@@ -1,0 +1,12 @@
+body {
+
+}
+
+header {
+  font-family: "mystery-quest";
+  @apply text-3xl;
+}
+
+footer {
+
+}
