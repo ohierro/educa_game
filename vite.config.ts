@@ -7,7 +7,14 @@ export default defineConfig({
   base: '/educa_game/',
   css: {
     postcs: {
-      plugins: ['postcss-nested', 'postcss-url', 'postcss-import', 'postcss-custom-properties']
+      plugins: ['postcss',
+                'postcss-nested',
+                'postcss-url',
+                'postcss-import',
+                'postcss-custom-properties',
+                'tailwindcss',
+                'autoprefixer',
+                'daisyui']
     }
   },
 })

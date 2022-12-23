@@ -1,7 +1,7 @@
 <template>
   Página principal
   <div>
-    <h2>Selecciona de curso</h2>
+    <h2 class="text-3xl font-bold underline">Selecciona de curso</h2>
     <ul>
       <li>
         <CButton

@@ -9,10 +9,16 @@ import Header from './components/ui/Header.vue';
     <Header />
   </header>
   <main>
+    <div class="bg-white text-5xl">
+      Texto de pruebas
+      <button class="btn">Button</button>
+    </div>
     <router-view></router-view>
+    <!-- <input type="range" min="0" max="100" value="40" class="range" /> -->
   </main>
   <footer>
     <Footer />
+    <button class="btn btn-primary">Button</button>
   </footer>
 </template>
 
