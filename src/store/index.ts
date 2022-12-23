@@ -2,16 +2,14 @@ import { defineStore } from 'pinia'
 import { QuestionGenerator } from '../core/questions/QuestionGenerator'
 import { IQuestion } from '../core/questions/IQuestion'
 import { computed, reactive, ref } from 'vue'
+import { AnsweredQuestions } from './AnsweredQuestions'
 
 export const useQuestionStore = defineStore('questions', () => {
   const number = ref(0)
   const validated = ref(false)
   const validation = ref(false)
 
-  let questions: IQuestion[] = reactive([])
-
-  // let solutions: string | number | boolean []
-  // let validations: boolean[] = reactive([])
+  let questions: AnsweredQuestions[] = reactive([])
 
   function increment() {
     number.value++
@@ -19,21 +17,23 @@ export const useQuestionStore = defineStore('questions', () => {
     validation.value = false
   }
 
-  function init() {
+  function init(totalQuestions: number = 10) {
     const generator = new QuestionGenerator()
-    questions.push(...generator.generate(2))
+    let answeredQuestions = generator.generate(totalQuestions).map(q => new AnsweredQuestions(q))
+    questions.splice(0, questions.length)
+    questions.push(...answeredQuestions)
+    number.value = 0
   }
 
   function validate(result: string | number | boolean) {
-    validation.value = questions[number.value].resolve(result)
-    validated.value = true
+    let solution = questions[number.value].resolve(result)
+    questions[number.value].answered = true
+    questions[number.value].okAnswered = solution
   }
 
   const currentQuestion = computed(() => questions[number.value])
   const progress = computed(() => number.value * 100 / questions.length)
-  // function currentQuestion(): IQuestion {
-  //   return questions[number.value]
-  // }
+  const totalOk = computed(() => questions.filter(q => q.answered).reduce((pv, cv) => pv + 1, 0))
 
-  return { questions, number, validated, validation, init, validate, increment, currentQuestion, progress }
+  return { questions, number, validated, validation, init, validate, increment, currentQuestion, progress, totalOk }
 })

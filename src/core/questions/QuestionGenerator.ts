@@ -13,7 +13,7 @@ export class QuestionGenerator {
     const simpleOperationGenerator = new MathSimpleOperationGenerator()
 
     let questions = []
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < questionNumber; i++) {
       if (CustomMath.random(0,10) < 5) {
         questions.push(generator.generate())
       } else {
@@ -22,7 +22,5 @@ export class QuestionGenerator {
     }
 
     return questions
-    // return [simpleOperationGenerator.generate(), generator.generate()]
-    // return [new TrueFalseQuestion('Pregunta de prueba...')]
   }
 }

@@ -5,7 +5,7 @@ export const useInformationStore = defineStore('information', () => {
   const gameInformation = reactive({
     course: 0,
     level: 0,
-    totalQuestions: 20
+    totalQuestions: 10
   })
 
   function setCourse(course: number) {

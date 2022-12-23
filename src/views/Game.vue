@@ -4,9 +4,9 @@
     <ProgressBar :progress="store.progress"></ProgressBar>
   </div>
   <div class="message">
-    <div v-if="store.validated">
-      <div v-if="store.validation">Bien!!</div>
-      <div v-if="!store.validation">Ohhh no</div>
+    <div v-if="store.currentQuestion.answered">
+      <div v-if="store.currentQuestion.okAnswered">Bien!!</div>
+      <div v-if="!store.currentQuestion.okAnswered">Ohhh no</div>
     </div>
   </div>
   <Question
@@ -23,23 +23,18 @@ import { useRouter } from 'vue-router';
 import ProgressBar from '../components/ProgressBar.vue';
 import Question from '../components/Question.vue';
 import { useQuestionStore } from '../store';
+import { useInformationStore } from '../store/information';
 
+const information = useInformationStore()
 const store = useQuestionStore()
-store.init()
 const router = useRouter()
 
 const showResult = ref(false)
 const resultOk = ref(false)
 const resultKo = ref(false)
 
-function clean() {
-
-}
-
 watch(() => store.number, (newVal, oldVal)=> {
-  // console.log(`new val ${newVal} oldval ${oldVal}`);
-  
-  if (newVal === 10) {
+  if (newVal === information.gameInformation.totalQuestions) {
     router.push('end')
   }
 })
@@ -48,7 +43,6 @@ function validate(option: boolean) {
   store.validate(option)
 
   setTimeout(() => {
-    clean()
     store.increment()
   }, 2000)
 }

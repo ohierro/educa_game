@@ -1,7 +1,6 @@
 import { IQuestion } from "../core/questions/IQuestion";
 
 export class AnsweredQuestions implements IQuestion {
-
   answered: boolean = false
   okAnswered: boolean = false
   solution: string | number | boolean = 0
