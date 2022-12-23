@@ -1,11 +1,23 @@
 /* @import url('postcss/index.css'); */
+
+/* @import url('postcss/commons/reset.css'); */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* @import url('postcss/commons/reset.css'); */
+
 @import url('postcss/variables.css');
 @import url('postcss/fonts.css');
 @import url('postcss/main.css');
+@import url('postcss/common.css');
 
-@tailwind base;
+@import url('postcss/component/list.css');
+
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 /* body {
   margin: 0;

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="store.intializated">
   <div>
     <ProgressBar :progress="store.progress"></ProgressBar>
   </div>
@@ -28,6 +28,10 @@ import { useInformationStore } from '../store/information';
 const information = useInformationStore()
 const store = useQuestionStore()
 const router = useRouter()
+
+if (!store.intializated) {
+  router.push('/')
+}
 
 const showResult = ref(false)
 const resultOk = ref(false)

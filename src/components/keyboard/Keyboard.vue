@@ -2,29 +2,29 @@
   <div class="keyboard">
     <div class="column-75">
       <div>
-        <button @click="$emit('key', 1)">1</button>
-        <button @click="$emit('key', 2)">2</button>
-        <button @click="$emit('key', 3)">3</button>
+        <button class="keyboard-button" @click="$emit('key', 1)">1</button>
+        <button class="keyboard-button" @click="$emit('key', 2)">2</button>
+        <button class="keyboard-button" @click="$emit('key', 3)">3</button>
       </div>
       <div>
-        <button @click="$emit('key', 4)">4</button>
-        <button @click="$emit('key', 5)">5</button>
-        <button @click="$emit('key', 6)">6</button>
+        <button class="keyboard-button" @click="$emit('key', 4)">4</button>
+        <button class="keyboard-button" @click="$emit('key', 5)">5</button>
+        <button class="keyboard-button" @click="$emit('key', 6)">6</button>
       </div>
       <div>
-        <button @click="$emit('key', 7)">7</button>
-        <button @click="$emit('key', 8)">8</button>
-        <button @click="$emit('key', 9)">9</button>
+        <button class="keyboard-button" @click="$emit('key', 7)">7</button>
+        <button class="keyboard-button" @click="$emit('key', 8)">8</button>
+        <button class="keyboard-button" @click="$emit('key', 9)">9</button>
       </div>
       <div>
-        <button class="bigButton" @click="$emit('key', 0)">0</button>
+        <button class="keyboard-button flex-grow" @click="$emit('key', 0)">0</button>
       </div>
     </div>
     <div class="column-25">
       <div class="operators full-height">
-        <button>+</button>
-        <button>-</button>
-        <button class="grow" @click="$emit('del')">Borrar</button>
+        <button class="keyboard-button">+</button>
+        <button class="keyboard-button">-</button>
+        <button class="keyboard-button flex-grow" @click="$emit('del')">Borrar</button>
       </div>
     </div>
   </div>
@@ -42,6 +42,11 @@ defineEmits(['key', 'del'])
   display: flex;
   padding: 0;
   width: 100%;
+}
+
+.keyboard-button {
+  @apply btn;
+  @apply m-2;
 }
 
 .bigButton {

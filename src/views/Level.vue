@@ -1,28 +1,22 @@
 <template>
-Selección de la dificultad
-<ul>
-  <li>
-    <CButton
-      title="1er trimestre"
-      path="game"
-      @click="selectLevel(1)"
-    ></CButton>
-  </li>
-  <li>
-    <CButton
-      title="2o trimestre"
-      disabled
-      path="game"
-    ></CButton>
-  </li>
-  <li>
-    <CButton
-      title="Curso completo"
-      disabled
-      path="game"
-    ></CButton>
-  </li>
-</ul>
+<h2>Selección de dificultad</h2>
+<div class="list">
+  <CButton
+    title="1er trimestre"
+    path="game"
+    @click="selectLevel(1)"
+  ></CButton>
+  <CButton
+    title="2o trimestre"
+    disabled
+    path="game"
+  ></CButton>
+  <CButton
+    title="Curso completo"
+    disabled
+    path="game"
+  ></CButton>
+</div>
 </template>
 
 <script setup lang="ts">

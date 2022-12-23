@@ -1,5 +1,6 @@
 <template>
-  <a click @click="doClick" :class="{ disabled: disabled }" class="myButton">{{ title }}</a>
+  <!-- <a click @click="doClick" :class="{ disabled: disabled }" class="myButton">{{ title }}</a> -->
+	<button class="btn" :class="{ 'btn-disabled': props.disabled }" @click="doClick">{{ title }}</button>
 </template>
 
 <script setup lang="ts">

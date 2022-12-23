@@ -1,0 +1,7 @@
+.list {
+  @apply flex flex-col items-center;
+
+  button {
+    @apply m-2 w-80;
+  }
+}

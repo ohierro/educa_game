@@ -1,7 +1,17 @@
 <template>
-<div class="meter animate">
-  <span :style="{ width: store.progress + '%' }"></span>
+<div id="container">
+  <div id="slider">
+    <div id="box" :style="boxStyle">
+      {{ progress }}
+    </div>
+  </div>
+  <div id="row">
+
+  </div>
 </div>
+<!-- <div class="meter animate">
+  <span :style="{ width: store.progress + '%' }"></span>
+</div> -->
 </template>
 
 <script setup lang="ts">
@@ -22,91 +32,45 @@ const fakeProgress = ref(0)
 // setInterval(() => {
 //   console.log(`progress ${fakeProgress.value}`)
 //   fakeProgress.value++
+
+//   if (fakeProgress.value > 100) fakeProgress.value = 0
 // }, 100)
+
+const boxStyle = computed(() => ({ left: `calc(${props.progress}% - 50px)` }))
 
 </script>
 
 
 <style scoped>
-.meter {
-  box-sizing: content-box;
-  height: 20px; /* Can be anything */
-  position: relative;
-  margin: 60px 0 20px 0; /* Just for demo spacing */
-  background: #555;
-  border-radius: 25px;
-  padding: 10px;
-  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+
+#container {
+  height: 100px;
+  left: 10px;
+  margin: auto;
+  width: 80%;
+  @apply shadow-inner;
 }
-.meter > span {
-  display: block;
-  height: 100%;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: rgb(43, 194, 83);
-  background-image: linear-gradient(
-    center bottom,
-    rgb(43, 194, 83) 37%,
-    rgb(84, 240, 84) 69%
-  );
-  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+
+#slider {
+  min-width: 100%;
   position: relative;
-  overflow: hidden;
 }
-.meter > span:after,
-.animate > span > span {
-  content: "";
+
+#box {
+  width: 50px;
+  height: 50px;
+  background-color: hsl(var(--n));
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: linear-gradient(
-    -45deg,
-    rgba(255, 255, 255, 0.2) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.2) 75%,
-    transparent 75%,
-    transparent
-  );
   z-index: 1;
-  background-size: 50px 50px;
-  animation: move 2s linear infinite;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  overflow: hidden;
+  @apply flex justify-center items-center text-xl;
 }
 
-.animate > span:after {
-  display: none;
-}
-
-@keyframes move {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
-  }
-}
-
-.orange > span {
-  background-image: linear-gradient(#f1a165, #f36d0a);
-}
-
-.red > span {
-  background-image: linear-gradient(#f0a3a3, #f42323);
-}
-
-.nostripes > span > span,
-.nostripes > span::after {
-  background-image: none;
+#row {
+  width: 80%;
+  background-color: hsl(var(--bc));
+  height: 10px;
+  position: absolute;
+    margin-top: 20px;
+    text-align: center;
 }
 </style>

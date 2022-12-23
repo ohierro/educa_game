@@ -1,29 +1,23 @@
 <template>
-  Página principal
-  <div>
-    <h2 class="text-3xl font-bold underline">Selecciona de curso</h2>
-    <ul>
-      <li>
-        <CButton
-          title="1 infantil (proximamente)"
-          disabled
-          path="course"
-        ></CButton>
-      </li>
-      <li><CButton
-          title="2 infantil (proximamente)"
-          disabled
-          path="course"
-        ></CButton>
-      </li>
-      <li>
-        <CButton
-          title="3 infantil"
-          path="course"
-          @click="selectCourse(3)"
-        ></CButton>
-      </li>
-    </ul>
+  <div id="home-view">
+    <h2>Selección de curso</h2>
+    <div class="list">
+      <CButton
+        title="1 infantil (proximamente)"
+        disabled
+        path="course"
+      ></CButton>
+    <CButton
+        title="2 infantil (proximamente)"
+        disabled
+        path="course"
+      ></CButton>
+      <CButton
+        title="3 infantil"
+        path="course"
+        @click="selectCourse(3)"
+      ></CButton>
+    </div>
   </div>
 </template>
 
@@ -41,3 +35,9 @@ function selectCourse(course: number) {
   router.push('level')
 }
 </script>
+
+<style>
+#home-view {
+  @apply h-full;
+}
+</style>

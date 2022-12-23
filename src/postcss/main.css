@@ -1,12 +1,25 @@
-body {
+html {
+  @apply h-full;
+}
 
+body {
+  @apply flex h-full justify-center;
+}
+
+#app {
+  @apply flex flex-col h-full w-full;
 }
 
 header {
   font-family: "mystery-quest";
-  @apply text-3xl;
+  @apply text-5xl p-10 text-center;
 }
 
 footer {
-
+  @apply text-right;
 }
+
+main {
+  @apply flex flex-col flex-grow;
+}
+

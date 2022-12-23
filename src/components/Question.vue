@@ -7,8 +7,8 @@
   </div>
   <div v-if="question.getType() === 'SimpleOperation'">
     <div class="flex">
-      <span class="input grow">{{ value }}</span>
-      <button @click="doEmit">Enviar</button>
+      <span class="input input-bordered w-full max-w-xs">{{ value }}</span>
+      <button class="btn" @click="doEmit">Enviar</button>
     </div>
     <Keyboard
       @key="onKeyPressed"
