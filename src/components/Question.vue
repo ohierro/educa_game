@@ -2,8 +2,10 @@
   <div class="prompt">{{ question.getTitle() }}</div>
 
   <div v-if="question.getType() === 'TrueFalse'">
-    <button class="bigButton-red" @click="$emit('resolve', false)">NO</button>
-    <button class="bigButton-green" @click="$emit('resolve', true)">SI</button>
+    <div class="flex justify-around">
+      <button class="bigButton-red" @click="$emit('resolve', false)">NO</button>
+      <button class="bigButton-green" @click="$emit('resolve', true)">SI</button>
+    </div>
   </div>
   <div v-if="question.getType() === 'SimpleOperation'">
     <div class="flex">
@@ -63,19 +65,31 @@ function doEmit() {
 }
 
 .bigButton-green {
+  @apply btn;
+  min-width: 150px;
+  min-height: 150px;
+  /* background-color: limegreen; */
+  /* font-size: xx-large; */
+  /* margin-bottom: 0px; */
+}
+
+/* .bigButton-green {
   min-width: 150px;
   min-height: 150px;
   background-color: limegreen;
   font-size: xx-large;
   margin-bottom: 0px;
-}
+} */
 
 .bigButton-red {
+  @apply btn;
   min-width: 150px;
+  min-height: 150px;
+  /* min-width: 150px;
   min-height: 150px;
   background-color: darkred;
   font-size: xx-large;
-  margin-bottom: 0px;
+  margin-bottom: 0px; */
 }
 
 </style>
