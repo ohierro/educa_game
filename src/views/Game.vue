@@ -1,11 +1,16 @@
 <template>
 <div v-if="store.intializated">
+  <!-- <Modal></Modal> -->
   <div>
     <ProgressBar :progress="store.progress"></ProgressBar>
   </div>
   <div class="message">
+    <!-- <Message msg="Bien!!!"></Message> -->
     <div v-if="store.currentQuestion.answered">
-      <div v-if="store.currentQuestion.okAnswered">Bien!!</div>
+      <Message v-if="store.currentQuestion.okAnswered" msg="Bien!!!"></Message>
+      <Message v-if="!store.currentQuestion.okAnswered" msg="Oh no!!!"></Message>
+      <!-- <Message msg="Bien!!!"></Message> -->
+      <!-- <div v-if="store.currentQuestion.okAnswered">Bien!!</div> -->
       <div v-if="!store.currentQuestion.okAnswered">Ohhh no</div>
     </div>
   </div>
@@ -22,8 +27,11 @@ import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import ProgressBar from '../components/ProgressBar.vue';
 import Question from '../components/Question.vue';
+import Modal from '../components/ui/Modal.vue';
+import Message from '../components/ui/Message.vue';
 import { useQuestionStore } from '../store';
 import { useInformationStore } from '../store/information';
+import party from "party-js";
 
 const information = useInformationStore()
 const store = useQuestionStore()
@@ -37,6 +45,13 @@ const showResult = ref(false)
 const resultOk = ref(false)
 const resultKo = ref(false)
 
+// watch(() => store.currentQuestion.answered, (newVal, oldVal) => {
+  // if (newVal && store.currentQuestion.okAnswered) {
+  //   console.log('lauch');
+  //   let element = document.getElementsByClassName('message')[0] as HTMLElement
+  //   party.confetti(element)
+  // }
+// })
 watch(() => store.number, (newVal, oldVal)=> {
   if (newVal === information.gameInformation.totalQuestions) {
     router.push('end')
@@ -54,9 +69,9 @@ function validate(option: boolean) {
 </script>
 
 <style scoped>
-.message {
+/* .message {
   min-height: 100px;
   font-size: xx-large;
   text-align: center;
-}
+} */
 </style>
