@@ -4,8 +4,12 @@
             url('/fonts/MysteryQuest-Regular.ttf') format('truetype');
 }
 
-
 @font-face {
       font-family: "bungee-spice";
       src: url('/fonts/BungeeSpice-Regular.ttf') format('truetype');
+}
+
+@font-face {
+      font-family: "fredokaone";
+      src: url('/fonts/FredokaOne-Regular.ttf') format('truetype');
 }

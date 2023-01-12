@@ -24,7 +24,7 @@ onMounted(() => {
 
 <style scoped>
 h1 {
-  font-family: 'bungee-spice';
+  font-family: 'fredokaone';
   font-size: 60px;
   position: absolute;
   top: 25%;
