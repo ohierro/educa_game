@@ -38,7 +38,7 @@ const store = useQuestionStore()
 const router = useRouter()
 
 if (!store.intializated) {
-  router.push('/')
+  router.push('/') 
 }
 
 const showResult = ref(false)
