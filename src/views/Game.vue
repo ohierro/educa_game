@@ -1,16 +1,13 @@
 <template>
 <div v-if="store.intializated">
-  <!-- <Modal></Modal> -->
   <div>
     <ProgressBar :progress="store.progress"></ProgressBar>
   </div>
   <div class="message">
-    <!-- <Message msg="Bien!!!"></Message> -->
+
     <div v-if="store.currentQuestion.answered">
-      <Message v-if="store.currentQuestion.okAnswered" msg="Bien!!!"></Message>
-      <Message v-if="!store.currentQuestion.okAnswered" msg="Oh no!!!"></Message>
-      <!-- <Message msg="Bien!!!"></Message> -->
-      <!-- <div v-if="store.currentQuestion.okAnswered">Bien!!</div> -->
+      <Message :positive="true" v-if="store.currentQuestion.okAnswered" msg="Bien!!!"></Message>
+      <Message :positive="false" v-if="!store.currentQuestion.okAnswered" msg="Oh no!!!"></Message>
       <div v-if="!store.currentQuestion.okAnswered">Ohhh no</div>
     </div>
   </div>
