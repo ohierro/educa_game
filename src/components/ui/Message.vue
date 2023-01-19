@@ -1,7 +1,7 @@
 <template>
 <div class="message-modal">
   <!-- <h1 class="animate__animated" :class="{ ok: positive, animate__swing: positive, nok: !positive, animate__hinge: !positive }">{{ msg }}</h1> -->
-  <h1 class="animate__animated" :class="customClass">{{ msg }}</h1>
+  <h1 id="modal-message" class="animate__animated" :class="customClass">{{ msg }}</h1>
 </div>
 </template>
 
@@ -20,9 +20,13 @@ const props = defineProps<{
 const el = ref()
 
 onMounted(() => {
-  let element = document.getElementsByClassName('animate__animated')[0] as HTMLElement
+  // let element = document.getElementsByClassName('animate__animated')[0] as HTMLElement
+  let element = document.getElementById('modal-message') as HTMLElement
   // el.value // <div>
-  party.confetti(element)
+  if (props.positive) {
+    console.log("party: " + element);
+    party.confetti(element)
+  }
 })
 
 let okAnimations = ['animate__bounce', 'animate__wobble', 'animate__bounceInLeft', 'animate__lightSpeedInRight', 'animate__zoomInLeft']

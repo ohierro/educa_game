@@ -7,14 +7,15 @@
       <button class="bigButton-green" @click="$emit('resolve', true)">SI</button>
     </div>
   </div>
-  <div v-if="question.getType() === 'SimpleOperation'">
-    <div class="flex">
-      <span class="input input-bordered w-full max-w-xs">{{ value }}</span>
+  <div class="flex flex-col h-full justify-end" v-if="question.getType() === 'SimpleOperation'">
+    <div class="flex justify-center">
+      <div class="Question--custom-input">{{ value }}</div>
       <button class="btn" @click="doEmit">Enviar</button>
     </div>
     <Keyboard
       @key="onKeyPressed"
-      @del="onDelPressed">
+      @del="onDelPressed"
+      :only-numbers="true">
     </Keyboard>
   </div>
 </template>
@@ -90,6 +91,14 @@ function doEmit() {
   background-color: darkred;
   font-size: xx-large;
   margin-bottom: 0px; */
+}
+
+.Question--custom-input {
+  @apply input w-full max-w-xs;
+  margin-right: 20px;
+  text-align: right;
+  font-size: x-large;
+  font-family: monospace;
 }
 
 </style>

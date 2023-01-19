@@ -4,11 +4,9 @@
     <ProgressBar :progress="store.progress"></ProgressBar>
   </div>
   <div class="message">
-
     <div v-if="store.currentQuestion.answered">
       <Message :positive="true" v-if="store.currentQuestion.okAnswered" msg="Bien!!!"></Message>
       <Message :positive="false" v-if="!store.currentQuestion.okAnswered" msg="Oh no!!!"></Message>
-      <div v-if="!store.currentQuestion.okAnswered">Ohhh no</div>
     </div>
   </div>
   <Question
