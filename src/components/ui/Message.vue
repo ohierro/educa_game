@@ -1,7 +1,7 @@
 <template>
-<div class="message-modal">
+<div id="modal-message" class="message-modal">
   <!-- <h1 class="animate__animated" :class="{ ok: positive, animate__swing: positive, nok: !positive, animate__hinge: !positive }">{{ msg }}</h1> -->
-  <h1 id="modal-message" class="animate__animated" :class="customClass">{{ msg }}</h1>
+  <h1  class="animate__animated" :class="customClass">{{ msg }}</h1>
 </div>
 </template>
 
@@ -9,13 +9,13 @@
 
 import party from "party-js";
 
-const props = defineProps<{
-  msg: string,
+const props = defineProps({
+  msg: String,
   positive: {
-    type: boolean,
+    type: Boolean,
     default: true,
   }
-}>()
+})
 
 const el = ref()
 

@@ -18,10 +18,10 @@ export class MathTrueFalseGenerator {
   // }
 
   expressions = [
-      `:a es mayor que :b?`,
-      `:a es menor que :b?`,
-      `:a más :b es igual a :c`,
-      `:a por :b es igual a :c`
+      `¿:a es mayor que :b?`,
+      `¿:a es menor que :b?`,
+      `¿:a más :b es igual a :c`,
+      `¿:a por :b es igual a :c`
   ]
 
   public generate(): TrueFalseQuestion {

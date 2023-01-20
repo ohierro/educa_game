@@ -10,7 +10,6 @@
     </div>
   </div>
   <Question
-    class="flex-grow"
     :question="store.currentQuestion"
     @resolve="validate"
   ></Question>

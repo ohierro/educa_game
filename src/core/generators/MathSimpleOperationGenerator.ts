@@ -5,9 +5,9 @@ import { SimpleOperationQuestion } from "../questions/SimpleOperationQuestion";
 export class MathSimpleOperationGenerator {
 
   expressions = [
-    `Cuanto es :a - :b?`,
-    `Cuanto es :a + :b?`,
-    `Cuanto es :a * :b?`,
+    `¿Cuanto es :a - :b?`,
+    `¿Cuanto es :a + :b?`,
+    `¿Cuanto es :a * :b?`,
   ]
 
   public generate(): SimpleOperationQuestion {
