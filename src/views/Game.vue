@@ -1,5 +1,5 @@
 <template>
-<div v-if="store.intializated">
+<div v-if="store.intializated" class="flex flex-col h-full">
   <div>
     <ProgressBar :progress="store.progress"></ProgressBar>
   </div>
@@ -10,6 +10,7 @@
     </div>
   </div>
   <Question
+    class="flex-grow"
     :question="store.currentQuestion"
     @resolve="validate"
   ></Question>
@@ -33,7 +34,7 @@ const store = useQuestionStore()
 const router = useRouter()
 
 if (!store.intializated) {
-  router.push('/') 
+  router.push('/')
 }
 
 const showResult = ref(false)

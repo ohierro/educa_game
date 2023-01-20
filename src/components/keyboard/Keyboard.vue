@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="keyboard"> -->
-<div class="flex w-full justify-center">
-  <div class="flex w-10/12">
+<div class="flex w-full justify-center mb-4">
+  <div class="flex w-full">
     <div class="flex flex-col h-full flex-grow">
       <div class="flex w-full h-14 items-center text-center">
         <div @click="$emit('key', 1)" class="btn shrink w-full m-1 sm:m-4">1</div>

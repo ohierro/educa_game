@@ -7,16 +7,18 @@
       <button class="bigButton-green" @click="$emit('resolve', true)">SI</button>
     </div>
   </div>
-  <div class="flex flex-col h-full justify-end" v-if="question.getType() === 'SimpleOperation'">
-    <div class="flex justify-center mb-4">
-      <div class="Question--custom-input">{{ value }}</div>
-      <button class="btn" @click="doEmit">Enviar</button>
+  <div class="flex h-full justify-end" v-if="question.getType() === 'SimpleOperation'">
+    <div class="w-80 flex flex-col h-full">
+      <div class="flex justify-center mb-4 m-1">
+        <div class="Question--custom-input">{{ value }}</div>
+        <button class="btn" @click="doEmit">Enviar</button>
+      </div>
+      <Keyboard
+        @key="onKeyPressed"
+        @del="onDelPressed"
+        :only-numbers="true">
+      </Keyboard>
     </div>
-    <Keyboard
-      @key="onKeyPressed"
-      @del="onDelPressed"
-      :only-numbers="true">
-    </Keyboard>
   </div>
 </template>
 
@@ -63,6 +65,7 @@ function doEmit() {
 
 .prompt {
   font-size: xx-large;
+  overflow-wrap: break-word
 }
 
 .bigButton-green {
