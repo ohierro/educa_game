@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="flex flex-col h-full justify-end" v-if="question.getType() === 'SimpleOperation'">
-    <div class="flex justify-center">
+    <div class="flex justify-center mb-4">
       <div class="Question--custom-input">{{ value }}</div>
       <button class="btn" @click="doEmit">Enviar</button>
     </div>
