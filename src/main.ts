@@ -4,6 +4,8 @@ import App from './App.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { routes } from './router/routes'
 import { createPinia } from 'pinia'
+import '@mdi/font/css/materialdesignicons.css';
+
 
 const router = createRouter({
   history: createWebHashHistory(),

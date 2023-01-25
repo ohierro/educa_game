@@ -1,8 +1,8 @@
 <template>
-<div id="modal-message" class="message-modal animate__animated animate__fadeIn">
-  <!-- <h1 class="animate__animated" :class="{ ok: positive, animate__swing: positive, nok: !positive, animate__hinge: !positive }">{{ msg }}</h1> -->
-  <h1  class="animate__animated" :class="customClass">{{ msg }}</h1>
-</div>
+  <div id="modal-message" class="message-modal">
+    <!-- <h1 class="animate__animated" :class="{ ok: positive, animate__swing: positive, nok: !positive, animate__hinge: !positive }">{{ msg }}</h1> -->
+    <h1  class="animate__animated" :class="customClass">{{ msg }}</h1>
+  </div>
 </template>
 
 <script setup lang="ts">import { computed, onMounted, ref } from 'vue';
@@ -91,4 +91,6 @@ h1 {
   color: hsl(var(--er));
   --animate-delay: 0.9s;
 }
+
+
 </style>

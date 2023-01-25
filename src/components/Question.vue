@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="flex h-full justify-center" v-if="question.getType() === 'SimpleOperation'">
-      <div class="w-80 flex flex-col justify-end h-full">
+      <div class="w-8/12 flex flex-col justify-end h-full">
         <div class="flex justify-center mb-4 m-1">
           <div class="Question--custom-input">{{ value }}</div>
           <button class="btn" @click="doEmit">Enviar</button>
@@ -17,7 +17,7 @@
         <Keyboard
           @key="onKeyPressed"
           @del="onDelPressed"
-          :only-numbers="true">
+          :only-numbers="false">
         </Keyboard>
       </div>
     </div>

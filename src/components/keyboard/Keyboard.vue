@@ -2,7 +2,7 @@
   <!-- <div class="keyboard"> -->
 <div class="flex w-full justify-center mb-4">
   <div class="flex w-full">
-    <div class="flex flex-col h-full flex-grow">
+    <div class="flex flex-col h-full flex-grow justify-evenly">
       <div class="flex w-full h-14 items-center text-center">
         <div @click="$emit('key', 1)" class="btn shrink w-full m-1 sm:m-4">1</div>
         <div @click="$emit('key', 2)" class="btn shrink w-full m-1 sm:m-4">2</div>
@@ -23,8 +23,21 @@
       </div>
     </div>
     <div class="h-full">
-      <div class="flex w-full h-full items-center text-center pb-1 pt-1">
+      <div v-if="onlyNumbers" class="flex w-full h-full items-center text-center pb-1 pt-1">
         <div @click="$emit('del')" class="btn shrink h-full w-full m-1 sm:m-4">Borrar</div>
+      </div>
+      <div v-else class="flex h-full">
+        <div>
+          <div @click="$emit('key', 7)" class="btn shrink w-full m-1 sm:m-4">+</div>
+          <div @click="$emit('key', 8)" class="btn shrink w-full m-1 sm:m-4">-</div>
+          <div @click="$emit('key', 9)" class="btn shrink w-full m-1 sm:m-4">x</div>
+          <div @click="$emit('key', 9)" class="btn shrink w-full m-1 sm:m-4">÷</div>
+        </div>
+          <div class="ml-2 h-full pb-2">
+          <div @click="$emit('del')" class="btn h-full w-full m-1 sm:m-4">
+            <i class="mdi mdi-backspace"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>
