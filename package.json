@@ -10,6 +10,7 @@
     "deploy": "gh-pages --dist 'dist'"
   },
   "dependencies": {
+    "@mdi/font": "^7.1.96",
     "animate.css": "^4.1.1",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.46.0",

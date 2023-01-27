@@ -1,21 +1,26 @@
 <template>
-  <div class="prompt">{{ question.getTitle() }}</div>
+  <div class="flex flex-col flex-grow">
+    <div class="prompt">{{ question.getTitle() }}</div>
 
-  <div v-if="question.getType() === 'TrueFalse'">
-    <div class="flex justify-around">
-      <button class="bigButton-red" @click="$emit('resolve', false)">NO</button>
-      <button class="bigButton-green" @click="$emit('resolve', true)">SI</button>
+    <div v-if="question.getType() === 'TrueFalse'">
+      <div class="flex justify-around">
+        <button class="bigButton-red" @click="$emit('resolve', false)">NO</button>
+        <button class="bigButton-green" @click="$emit('resolve', true)">SI</button>
+      </div>
     </div>
-  </div>
-  <div v-if="question.getType() === 'SimpleOperation'">
-    <div class="flex">
-      <span class="input input-bordered w-full max-w-xs">{{ value }}</span>
-      <button class="btn" @click="doEmit">Enviar</button>
+    <div class="flex h-full justify-center" v-if="question.getType() === 'SimpleOperation'">
+      <div class="w-8/12 flex flex-col justify-end h-full">
+        <div class="flex justify-center mb-4 m-1">
+          <div class="Question--custom-input">{{ value }}</div>
+          <button class="btn" @click="doEmit">Enviar</button>
+        </div>
+        <Keyboard
+          @key="onKeyPressed"
+          @del="onDelPressed"
+          :only-numbers="false">
+        </Keyboard>
+      </div>
     </div>
-    <Keyboard
-      @key="onKeyPressed"
-      @del="onDelPressed">
-    </Keyboard>
   </div>
 </template>
 
@@ -62,6 +67,8 @@ function doEmit() {
 
 .prompt {
   font-size: xx-large;
+  overflow-wrap: break-word;
+  text-align: center;
 }
 
 .bigButton-green {
@@ -90,6 +97,14 @@ function doEmit() {
   background-color: darkred;
   font-size: xx-large;
   margin-bottom: 0px; */
+}
+
+.Question--custom-input {
+  @apply input w-full max-w-xs;
+  margin-right: 20px;
+  text-align: right;
+  font-size: x-large;
+  font-family: monospace;
 }
 
 </style>

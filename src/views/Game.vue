@@ -1,15 +1,15 @@
 <template>
-<div v-if="store.intializated">
+<div v-if="store.intializated" class="flex flex-col h-full">
   <div>
     <ProgressBar :progress="store.progress"></ProgressBar>
   </div>
   <div class="message">
-
+    <Transition>
     <div v-if="store.currentQuestion.answered">
       <Message :positive="true" v-if="store.currentQuestion.okAnswered" msg="Bien!!!"></Message>
       <Message :positive="false" v-if="!store.currentQuestion.okAnswered" msg="Oh no!!!"></Message>
-      <div v-if="!store.currentQuestion.okAnswered">Ohhh no</div>
     </div>
+    </Transition>
   </div>
   <Question
     :question="store.currentQuestion"
@@ -35,7 +35,7 @@ const store = useQuestionStore()
 const router = useRouter()
 
 if (!store.intializated) {
-  router.push('/') 
+  router.push('/')
 }
 
 const showResult = ref(false)
@@ -71,4 +71,15 @@ function validate(option: boolean) {
   font-size: xx-large;
   text-align: center;
 } */
+
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 </style>
