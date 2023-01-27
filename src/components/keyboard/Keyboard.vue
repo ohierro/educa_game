@@ -4,39 +4,39 @@
   <div class="flex w-full">
     <div class="flex flex-col h-full flex-grow justify-evenly">
       <div class="flex w-full h-14 items-center text-center">
-        <div @click="$emit('key', 1)" class="btn shrink w-full m-1 sm:m-4">1</div>
-        <div @click="$emit('key', 2)" class="btn shrink w-full m-1 sm:m-4">2</div>
-        <div @click="$emit('key', 3)" class="btn shrink w-full m-1 sm:m-4">3</div>
+        <button @click="$emit('key', 1)" class="btn shrink w-full m-1 sm:m-4">1</button>
+        <button @click="$emit('key', 2)" class="btn shrink w-full m-1 sm:m-4">2</button>
+        <button @click="$emit('key', 3)" class="btn shrink w-full m-1 sm:m-4">3</button>
       </div>
       <div class="flex w-full h-14 items-center text-center">
-        <div @click="$emit('key', 4)" class="btn shrink w-full m-1 sm:m-4">4</div>
-        <div @click="$emit('key', 5)" class="btn shrink w-full m-1 sm:m-4">5</div>
-        <div @click="$emit('key', 6)" class="btn shrink w-full m-1 sm:m-4">6</div>
+        <button @click="$emit('key', 4)" class="btn shrink w-full m-1 sm:m-4">4</button>
+        <button @click="$emit('key', 5)" class="btn shrink w-full m-1 sm:m-4">5</button>
+        <button @click="$emit('key', 6)" class="btn shrink w-full m-1 sm:m-4">6</button>
       </div>
       <div class="flex w-full h-14 items-center text-center">
-        <div @click="$emit('key', 7)" class="btn shrink w-full m-1 sm:m-4">7</div>
-        <div @click="$emit('key', 8)" class="btn shrink w-full m-1 sm:m-4">8</div>
-        <div @click="$emit('key', 9)" class="btn shrink w-full m-1 sm:m-4">9</div>
+        <button @click="$emit('key', 7)" class="btn shrink w-full m-1 sm:m-4">7</button>
+        <button @click="$emit('key', 8)" class="btn shrink w-full m-1 sm:m-4">8</button>
+        <button @click="$emit('key', 9)" class="btn shrink w-full m-1 sm:m-4">9</button>
       </div>
       <div class="flex w-full h-14 items-center text-center">
-        <div @click="$emit('key', 0)" class="btn shrink w-full m-1 sm:m-4">0</div>
+        <button @click="$emit('key', 0)" class="btn shrink w-full m-1 sm:m-4">0</button>
       </div>
     </div>
     <div class="h-full">
       <div v-if="onlyNumbers" class="flex w-full h-full items-center text-center pb-1 pt-1">
-        <div @click="$emit('del')" class="btn shrink h-full w-full m-1 sm:m-4">Borrar</div>
+        <button @click="$emit('del')" class="btn shrink h-full w-full m-1 sm:m-4">Borrar</button>
       </div>
       <div v-else class="flex h-full">
         <div>
-          <div @click="$emit('key', 7)" class="btn shrink w-full m-1 sm:m-4">+</div>
-          <div @click="$emit('key', 8)" class="btn shrink w-full m-1 sm:m-4">-</div>
-          <div @click="$emit('key', 9)" class="btn shrink w-full m-1 sm:m-4">x</div>
-          <div @click="$emit('key', 9)" class="btn shrink w-full m-1 sm:m-4">÷</div>
+          <button @click="$emit('key-op', '+')" class="btn shrink w-full m-1 sm:m-4">+</button>
+          <button @click="$emit('key-op', '-')" class="btn shrink w-full m-1 sm:m-4">-</button>
+          <button @click="$emit('key-op', '*')" class="btn shrink w-full m-1 sm:m-4">x</button>
+          <button @click="$emit('key-op', '/')" class="btn shrink w-full m-1 sm:m-4">÷</button>
         </div>
           <div class="ml-2 h-full pb-2">
-          <div @click="$emit('del')" class="btn h-full w-full m-1 sm:m-4">
+          <button @click="$emit('del')" class="btn h-full w-full m-1 sm:m-4">
             <i class="mdi mdi-backspace"></i>
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -89,6 +89,11 @@ defineProps<{
 </script>
 
 <style scoped>
+
+button:hover {
+  background-color: hsl(var(--n));
+}
+
 .keyboard {
   display: flex;
   padding: 0;
