@@ -9,9 +9,12 @@
       </div>
     </div>
     <div class="flex h-full justify-center" v-if="question.getType() === 'SimpleOperation'">
+      <MathOperation :operators="[123,456]" :operations="['+']"></MathOperation>
+    </div>
+    <!-- <div class="flex h-full justify-center" v-if="question.getType() === 'SimpleOperation'">
       <div class="w-8/12 flex flex-col justify-end h-full">
         <div class="flex justify-center mb-4 m-1">
-          <div class="Question--custom-input">{{ value }}</div>
+          <InputNumber :value="sValue"></InputNumber>
           <button class="btn" @click="doEmit">Enviar</button>
         </div>
         <Keyboard
@@ -20,7 +23,7 @@
           :only-numbers="false">
         </Keyboard>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -28,8 +31,11 @@
 import Keyboard from '../components/keyboard/Keyboard.vue';
 import { ref } from 'vue'
 import { IQuestion } from '../core/questions/IQuestion';
+import InputNumber from './keyboard/InputNumber.vue';
+import MathOperation from './math_operation/MathOperation.vue';
 
 const value = ref(0)
+const sValue = ref('')
 
 const emit = defineEmits(['resolve'])
 
@@ -38,13 +44,20 @@ const props = defineProps<{
 }>()
 
 function onKeyPressed(key: number) {
-  value.value = parseInt(value.value.toString() + key)
+  // if (value.value.toString().length < 4)
+  //   value.value = parseInt(key + value.value.toString())
+  if (sValue.value.length < 4) {
+    sValue.value = key + sValue.value
+  }
 }
 
 function onDelPressed() {
-  let sValue = value.value.toString()
-  sValue = sValue.substring(0, sValue.length - 1)
-  value.value = sValue === '' ? 0 : parseInt(sValue)
+  // let sValue = value.value.toString()
+  // sValue = sValue.substring(1)
+  // value.value = sValue === '' ? 0 : parseInt(sValue)
+
+  if (sValue.value.length > 0)
+    sValue.value = sValue.value.substring(1)
 }
 
 function doEmit() {
