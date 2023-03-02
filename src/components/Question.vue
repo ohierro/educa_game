@@ -121,6 +121,19 @@ const doResolve = (value: Number) => {
   margin-bottom: 0px; */
 }
 
+button:hover {
+  background-color: hsl(var(--n));
+}
+
+.bigButton-red:hover {
+  background-color: hsl(var(--n));
+}
+
+.bigButton-green:hover {
+  background-color: hsl(var(--n));
+}
+
+
 .Question--custom-input {
   @apply input w-full max-w-xs;
   margin-right: 20px;

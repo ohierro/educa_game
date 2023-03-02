@@ -35,7 +35,7 @@ export class MathSimpleOperationGenerator {
     return new SimpleOperationQuestion(
         CustomExpressions.replace(this.expressions[op], { a: operators[0], b: operators[1] }),
         operators,
-        op === 0 ? '-' : op === 1 ? '+' : '*',
+        [op === 0 ? '-' : op === 1 ? '+' : '*'],
         result)
   }
 }
