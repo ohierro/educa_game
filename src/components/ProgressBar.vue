@@ -1,5 +1,5 @@
 <template>
-<div id="container">
+<div id="container" class="mb-4">
   <div class="text-center">Progreso</div>
   <progress class="progress progress-secondary" :value="progress" max="100"></progress>
   <!-- <div id="slider">

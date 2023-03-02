@@ -24,7 +24,7 @@
     </div>
     <div class="h-full">
       <div v-if="onlyNumbers" class="flex w-full h-full items-center text-center pb-1 pt-1">
-        <button @click="$emit('del')" class="btn shrink h-full w-full m-1 sm:m-4">Borrar</button>
+        <button @click="$emit('del')" class="btn btn-warning shrink h-full w-full m-1 sm:m-4">Borrar</button>
       </div>
       <div v-else class="flex h-full">
         <div>
@@ -34,7 +34,7 @@
           <button @click="$emit('key-op', '/')" class="btn shrink w-full m-1 sm:m-4">÷</button>
         </div>
           <div class="ml-2 h-full pb-2">
-          <button @click="$emit('del')" class="btn h-full w-full m-1 sm:m-4">
+          <button @click="$emit('del')" class="btn btn-warning h-full w-full m-1 sm:m-4">
             <i class="mdi mdi-backspace"></i>
           </button>
         </div>

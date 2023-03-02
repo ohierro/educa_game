@@ -1,20 +1,23 @@
 import { IQuestion } from "./IQuestion";
 
 export class SimpleOperationQuestion implements IQuestion {
-  title: string
-  solution: number
-
-  constructor(title: string, solution: number) {
-    this.title = title
-    this.solution = solution
+  constructor(private title: string,
+              private members: Number[],
+              private operators: String[],
+              private solution: number) {
   }
 
   getType(): string {
     return 'SimpleOperation'
   }
-
   getTitle(): string {
     return this.title
+  }
+  getMembers(): Number[] {
+    return this.members
+  }
+  getOperators(): String[] {
+    return this.operators
   }
   getOptions(): string[] {
     throw new Error("Method not implemented.");

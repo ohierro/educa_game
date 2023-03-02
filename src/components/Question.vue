@@ -9,30 +9,19 @@
       </div>
     </div>
     <div class="flex h-full justify-center" v-if="question.getType() === 'SimpleOperation'">
-      <MathOperation :operators="[123,456]" :operations="['+']"></MathOperation>
+      <MathOperation :operators="members" :operations="operators" @resolve="doResolve"></MathOperation>
     </div>
-    <!-- <div class="flex h-full justify-center" v-if="question.getType() === 'SimpleOperation'">
-      <div class="w-8/12 flex flex-col justify-end h-full">
-        <div class="flex justify-center mb-4 m-1">
-          <InputNumber :value="sValue"></InputNumber>
-          <button class="btn" @click="doEmit">Enviar</button>
-        </div>
-        <Keyboard
-          @key="onKeyPressed"
-          @del="onDelPressed"
-          :only-numbers="false">
-        </Keyboard>
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import Keyboard from '../components/keyboard/Keyboard.vue';
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { IQuestion } from '../core/questions/IQuestion';
 import InputNumber from './keyboard/InputNumber.vue';
 import MathOperation from './math_operation/MathOperation.vue';
+import { SimpleOperationQuestion } from '../core/questions/SimpleOperationQuestion';
+import { AnsweredQuestions } from '../store/AnsweredQuestions'
 
 const value = ref(0)
 const sValue = ref('')
@@ -43,26 +32,46 @@ const props = defineProps<{
   question: IQuestion,
 }>()
 
-function onKeyPressed(key: number) {
-  // if (value.value.toString().length < 4)
-  //   value.value = parseInt(key + value.value.toString())
-  if (sValue.value.length < 4) {
-    sValue.value = key + sValue.value
+const operators = computed( () => {
+  if (props.question.getType() === 'SimpleOperation') {
+    return ((props.question as AnsweredQuestions).question as SimpleOperationQuestion).getOperators()
+  } else {
+    return []
   }
-}
+})
 
-function onDelPressed() {
-  // let sValue = value.value.toString()
-  // sValue = sValue.substring(1)
-  // value.value = sValue === '' ? 0 : parseInt(sValue)
+const members = computed( () => {
+  if (props.question.getType() === 'SimpleOperation') {
+    return ((props.question as AnsweredQuestions).question as SimpleOperationQuestion).getMembers()
+  } else {
+    return []
+  }
+})
 
-  if (sValue.value.length > 0)
-    sValue.value = sValue.value.substring(1)
-}
+// function onKeyPressed(key: number) {
+//   // if (value.value.toString().length < 4)
+//   //   value.value = parseInt(key + value.value.toString())
+//   if (sValue.value.length < 4) {
+//     sValue.value = key + sValue.value
+//   }
+// }
 
-function doEmit() {
-  emit('resolve', value.value)
-  value.value = 0
+// function onDelPressed() {
+//   // let sValue = value.value.toString()
+//   // sValue = sValue.substring(1)
+//   // value.value = sValue === '' ? 0 : parseInt(sValue)
+
+//   if (sValue.value.length > 0)
+//     sValue.value = sValue.value.substring(1)
+// }
+
+// function doEmit() {
+//   emit('resolve', value.value)
+//   value.value = 0
+// }
+
+const doResolve = (value: Number) => {
+  emit('resolve', value)
 }
 
 </script>

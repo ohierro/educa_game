@@ -5,7 +5,7 @@ export class AnsweredQuestions implements IQuestion {
   okAnswered: boolean = false
   solution: string | number | boolean = 0
 
-  constructor(private question: IQuestion) {
+  constructor(public question: IQuestion) {
     // this.answered = false
     // this.okAnswered =
   }
